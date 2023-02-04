@@ -1,0 +1,42 @@
+import sqlite3
+
+conn = sqlite3.connect('movies.db')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS movies(
+    Movie_ID INTEGER PRIMARY KEY NOT NULL,
+    Movie_name TEXT NOT NULL,
+    Genre TEXT NOT NULL,
+    Language TEXT NOT NULL,
+    Rating FLOAT NOT NULL
+);
+''')
+
+conn.execute('''INSERT INTO movies(Movie_ID, Movie_name, Genre, Language, Rating)
+             VALUES  (101, 'Jai Bhim', 'Drama', 'English', 9.3),
+                     (102, ' Parasite', 'Horror ,Mytsery', 'Korean', 9.0),
+                     (104, 'Radhe ', 'Action Adventure ', 'Hindi', 2.7),
+                     (105, 'Train to Busan', 'Action , Horror,Thriller', 'Korean', 7.6),
+                     (106,'Interstellar ','Adventure, Drama, Sci-Fi',"English",8.7)
+             ''')
+
+print("Update the movies rating by 10%:")    
+query = "UPDATE movies SET Rating = round(0.1*Rating+Rating,2);"
+conn.execute(query)
+
+query = "SELECT * FROM movies"
+for i in conn.execute(query):
+    print(i)
+
+print("\n\nDelete the movie with movie_id 102:")
+query = "DELETE FROM movies where Movie_ID=102"
+conn.execute(query)
+
+
+query = "SELECT * FROM movies"
+for i in conn.execute(query):
+    print(i)
+
+print("\n\nSelect movies whose rating is more than 3:")
+query = "SELECT * FROM movies where Rating>3;"
+for i in conn.execute(query):
+    print(i)

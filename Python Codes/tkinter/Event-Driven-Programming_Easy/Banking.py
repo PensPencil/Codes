@@ -1,0 +1,22 @@
+from tkinter import *
+
+from sqlalchemy import column
+root=Tk()
+Label(root,text="CustID :").grid(row=0)
+Label(root,text="Customer Name :").grid(row=1)
+Label(root,text="Branch :").grid(row=2)
+v1 = StringVar(root,"Adyar")
+e1=Entry(root).grid(row=0,column=1)
+e2=Entry(root).grid(row=1,column=1)
+e3=Entry(root,textvariable=v1).grid(row=2,column=1)
+Label(root,text="Account Type").grid(row=3)
+v = IntVar()
+Radiobutton(root,text="Saving",variable=v,value=1).grid(row=3,column=1)
+Radiobutton(root,text="Non-Saving",variable=v,value=2).grid(row=3,column=2)
+Label(root,text="Amount").grid(row=4)
+Scale(root,from_=100,to=5000,orient=HORIZONTAL).grid(row=4,column=1)
+Button(root,text="Insert").grid(row=5)
+Button(root,text="Update").grid(row=5,column=1)
+Button(root,text="Delete").grid(row=6)
+Button(root,text="Select").grid(row=6,column=1)
+mainloop()

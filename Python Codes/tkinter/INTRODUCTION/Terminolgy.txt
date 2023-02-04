@@ -1,0 +1,5 @@
+Tk - To set the main window.
+mainloop() - To run an infinite loop. It keeps on processing an event until the window is closed.
+pack() method:It organizes the widgets in blocks before placing in the parent widget.
+grid() method:It organizes the widgets in grid (table-like structure) before placing in the parent widget.
+place() method:It organizes the widgets by placing them on specific positions directed by the programmer.
